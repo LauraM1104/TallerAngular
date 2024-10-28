@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="my-4">Listado de Series</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Canal</th>
+        <th>Temporadas</th>
+        <th>Enlace</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let serie of series; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td><img [src]="serie.imagen" alt="{{ serie.nombre }}" width="100"></td>
+        <td>{{ serie.nombre }}</td>
+        <td>{{ serie.canal }}</td>
+        <td>{{ serie.temporadas }}</td>
+        <td><a [href]="serie.url" target="_blank">Más información</a></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">Promedio de temporadas: {{ promedio | number: '1.1-1' }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
